@@ -1,13 +1,32 @@
 interface Vehicle {
     name: string
     plate: string
-    entrance: Date
+    entrance: Date | string
+    clientId?: string
 }
+
+// //FICA DE DESAFIO COLOCAR A QUEM PERTENCE O VEICULO
+// interface Person {
+//     name: string
+//     cpf: string
+// }
+
+// interface Client extends Person {
+//     vehicle: Vehicle[]
+// }
+
 
 // Função auto-executável (IIFE) após o código carregar
 (function() {
     const $ = (query: string): HTMLInputElement | null => document.querySelector(query)
     
+    function calcTime(thousand: number): string {
+        const minute = Math.floor(thousand / 60000)
+        const second = Math.floor((thousand % 60000) / 1000)
+
+        return `${minute}min e ${second}s`
+    }
+
     function parkingLot() {
         //ler - retorna a lista de veiculos salva no armazenamento do dispositivo
         function read(): Array<Vehicle> {
@@ -32,6 +51,9 @@ interface Vehicle {
                     <button type="button" class="delete" data-plate="${vehicle.plate}">X</button>
                 </td>
             `
+            row.querySelector(".delete")?.addEventListener('click', function () {
+                remove(this.dataset.plate)
+            })
     
             //Adicionando ao corpo da tabela
             $("#parking-lot")?.appendChild(row)
@@ -43,7 +65,17 @@ interface Vehicle {
         }
     
         //remover
-        function remove(): void {}
+        function remove(plate: string): void {
+            const { entrance, name } = read().find(vehicle => vehicle.plate === plate)
+            const time = calcTime(new Date().getTime() - new Date(entrance).getTime())
+
+            if (!confirm(`O veiculo ${name} permaneceu por ${time}. Deseja encerrar?`)) {
+                return
+            }
+
+            save(read().filter(vehicle => vehicle.plate !== plate))
+            render()
+        }
     
         //rendenrizar na tela - renderiza as informações do patio na tela
         function render() {
@@ -72,6 +104,6 @@ interface Vehicle {
             return
         }
 
-        parkingLot().add({ name, plate, entrance: new Date() }, true)
+        parkingLot().add({ name, plate, entrance: new Date().toISOString() }, true)
     })
 })()
