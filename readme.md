@@ -3,7 +3,7 @@ desenvolvido por [Ivanildo Borges](https://github.com/IvanildoBorges)
 
 ## Projeto prático de uma aplicação de sistema de estacionamento.
 
-### Tecconlogias
+### Tecnologias
 - TypeScript
 
 ### Como rodar o projeto
