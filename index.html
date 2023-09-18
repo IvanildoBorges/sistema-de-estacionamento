@@ -4,37 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- base SEO -->
+    <meta name="description" content="Personal Portfolio Ivanildo Borges | Website | Oxi Ivan">
+    <!-- base PWA -->
+    <meta name="theme-color" content="#d6a709"/>
+    <link rel="stylesheet" href="./style.css">
     <title>Estacio</title>
 </head>
 
 <body>
-    <input 
-        type="text" 
-        id="name" 
-        name="name" 
-        placeholder="Digite o nome do veículo..."
-        autocomplete="off"
-    />
-    <input 
-        type="text" 
-        id="plate"
-        name="plate"
-        placeholder="Digite número da placa..."
-        autocomplete="off"
-    />
-    <button type="button" id="signup">Cadastrar</button>
+    <div class="container">
+        <input 
+            class="input-style"
+            type="text" 
+            id="name" 
+            name="name" 
+            placeholder="Digite o nome do veículo..."
+            autocomplete="off"
+        />
+        <input 
+            class="input-style"
+            type="text" 
+            id="plate"
+            name="plate"
+            placeholder="Digite número da placa..."
+            autocomplete="off"
+        />
+        <button type="button" id="signup">Cadastrar</button>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Placa</th>
-                <th>Entrada</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody id="parking-lot"></tbody>
-    </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Placa</th>
+                    <th>Entrada</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="parking-lot"></tbody>
+        </table>
+    </div>
 
     <script src="./app.js"></script>
 </body>
