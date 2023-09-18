@@ -16,5 +16,8 @@ desenvolvido por [Ivanildo Borges](https://github.com/IvanildoBorges)
 
 3 - Execute o projeto
 
-    npm run dev
+    npm run prod
 
+4 - Abra o arquivo index.html em um navegador
+
+5 - Agora é só testar as funcionalidades ^^
