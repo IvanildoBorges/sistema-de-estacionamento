@@ -1,0 +1,19 @@
+# Do not upload folders
+node_modules
+dist
+dist-ssr
+*.local
+
+# Do not upload files
+package-lock.json
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
